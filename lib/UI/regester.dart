@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:orderapp/UI/Auth/mytextfieldusername.dart';
-import 'package:orderapp/UI/Login.dart';
+import 'package:AssistantApp/UI/Auth/mytextfieldusername.dart';
+import 'package:AssistantApp/UI/Login.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -196,6 +196,9 @@ class _RegisterState extends State<Register> {
                     hintText: 'Email',
                     hintStyle: TextStyle(color: Colors.black38)),
               ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             Container(
               alignment: Alignment.centerLeft,

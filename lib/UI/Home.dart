@@ -15,6 +15,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.indigo,
         title: Text('AssistantApp'),
         centerTitle: true,
+
       ),
       body: Container(
         padding: EdgeInsets.only(left: 30, top: 5, right: 30, bottom: 5),
