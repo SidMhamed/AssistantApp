@@ -235,7 +235,7 @@ class _RegisterState extends State<Register> {
               width: double.infinity,
               child: MaterialButton(
                 elevation: 5,
-                onPressed: () => print('Register Pressed'),
+                onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false),
                 padding:
                     EdgeInsets.only(left: 15, top: 15, right: 15, bottom: 15),
                 shape: RoundedRectangleBorder(

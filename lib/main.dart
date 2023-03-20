@@ -7,7 +7,8 @@ void main() => runApp( MaterialApp(
   routes: <String , WidgetBuilder>{
     '/Login' : (BuildContext context) => new Login(),
     '/Register' : (BuildContext context) => new Register(),
+    '/Home' : (BuildContext context) => new Home()
   },
-  home: Home(),
+  home: Login(),
 ));
 
