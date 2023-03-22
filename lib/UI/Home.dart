@@ -11,11 +11,96 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.indigo),
+              padding: EdgeInsets.all(10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    width: 70,
+                    height: 70,
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('images/me.png'),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                    'SiMhamed Avdhil',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    'Sidmhamed00@gmail.com',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home,color: Colors.indigo,),
+              title: Text('Home'),
+              onTap: () {
+                print('Home click me');
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle,color: Colors.indigo,),
+              title: Text('Profile'),
+              onTap: () {
+                print('Profile click me');
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.post_add,color: Colors.indigo,),
+              title: Text('Add Post'),
+              onTap: () {
+                print('Profile click me');
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.local_pharmacy,color: Colors.indigo,),
+              title: Text('Pharmacy'),
+              onTap: () {
+                print('Pharmacy click me');
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.settings,
+                color: Colors.indigo,
+              ),
+              title: Text('Settings'),
+              onTap: () {
+                print('Settings click me');
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.indigo,
         title: Text('AssistantApp'),
         centerTitle: true,
-
       ),
       body: Container(
         padding: EdgeInsets.only(left: 30, top: 5, right: 30, bottom: 5),
@@ -38,7 +123,6 @@ class _HomeState extends State<Home> {
                     style: TextStyle(
                       color: Colors.indigo,
                       fontSize: 30,
-
                     ),
                   ),
                   Container(
@@ -77,12 +161,12 @@ class _HomeState extends State<Home> {
                   Container(
                     padding: EdgeInsets.all(20),
                     child: Text(
-                        'In Flutter, you can use a Card widget to display a material design',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                  ),
+                      'In Flutter, you can use a Card widget to display a material design',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -115,7 +199,7 @@ class _HomeState extends State<Home> {
                         color: Colors.black,
                         fontSize: 20,
                       ),
-                  ),
+                    ),
                   ),
                 ],
               ),
