@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
                     'Sidmhamed00@gmail.com',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 15,
                     ),
                   ),
                   SizedBox(
@@ -60,18 +60,10 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.account_circle,color: Colors.indigo,),
-              title: Text('Profile'),
-              onTap: () {
-                print('Profile click me');
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
               leading: Icon(Icons.post_add,color: Colors.indigo,),
               title: Text('Add Post'),
               onTap: () {
-                print('Profile click me');
+                print('Add Post click me');
                 Navigator.pop(context);
               },
             ),
@@ -81,6 +73,21 @@ class _HomeState extends State<Home> {
               onTap: () {
                 print('Pharmacy click me');
                 Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle,color: Colors.indigo,),
+              title: Text('Profile'),
+              onTap: () {
+                print('Profile click me');
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout,color: Colors.indigo,),
+              title: Text('Logout'),
+              onTap: () {
+                Navigator.of(context).pushNamedAndRemoveUntil('/Login', (Route<dynamic> route) => false);
               },
             ),
             ListTile(
