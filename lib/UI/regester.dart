@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'dart:convert';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:AssistantApp/UI/Auth/mytextfieldusername.dart';
@@ -5,6 +7,7 @@ import 'package:AssistantApp/UI/Login.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Register extends StatefulWidget {
+
   @override
   State<Register> createState() => _RegisterState();
 }
@@ -12,6 +15,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   late PickedFile _imageFile;
   final ImagePicker _picker = ImagePicker();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +44,8 @@ class _RegisterState extends State<Register> {
             SizedBox(
               height: 10,
             ),
+            addressTextField(),
+            SizedBox(height: 10,),
             cityTextField(),
             SizedBox(
               height: 10,
@@ -66,11 +72,7 @@ class _RegisterState extends State<Register> {
         children: <Widget>[
           CircleAvatar(
             radius: 80.0,
-            backgroundImage: _imageFile == null
-                ? ImageProvider('images/me.png')
-                : FileImage(
-                    File(_imageFile.path),
-                  ),
+            backgroundImage:AssetImage('images/me.png'),
           ),
           Positioned(
             bottom: 20.0,
@@ -116,7 +118,7 @@ class _RegisterState extends State<Register> {
             children: <Widget>[
               IconButton(
                 onPressed: () {
-                  takePhoto(ImageSource.camera as ImagePicker);
+                 takePhoto(ImageSource.camera);
                 },
                 icon: Icon(
                   Icons.camera,
@@ -132,7 +134,7 @@ class _RegisterState extends State<Register> {
               ),
               IconButton(
                 onPressed: () {
-                  takePhoto(ImageSource.gallery as ImagePicker);
+                  takePhoto(ImageSource.gallery);
                 },
                 icon: Icon(
                   Icons.image,
@@ -153,7 +155,7 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  void takePhoto(ImagePicker source) async {
+  void takePhoto(ImageSource source) async {
     final pickedFile = await _picker.pickImage(
       source: source,
     );
@@ -221,6 +223,38 @@ class _RegisterState extends State<Register> {
               size: 25,
             ),
             hintText: 'Phone',
+            hintStyle: TextStyle(color: Colors.black38)),
+      ),
+    );
+  }
+
+  Widget addressTextField(){
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 6,
+              offset: Offset(0, 2),
+            )
+          ]),
+      height: 50,
+      child: TextField(
+        keyboardType: TextInputType.text,
+        style: TextStyle(
+          color: Colors.black87,
+        ),
+        decoration: InputDecoration(
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.only(top: 14),
+            prefixIcon: Icon(
+              Icons.add_location,
+              color: Colors.indigo,
+              size: 25,
+            ),
+            hintText: 'Address',
             hintStyle: TextStyle(color: Colors.black38)),
       ),
     );
@@ -374,4 +408,7 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
+
+
+
 }
