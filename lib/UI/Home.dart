@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
                     height: 10.0,
                   ),
                   Text(
-                    'SiMhamed Avdhil',
+                    'SiM\'hamed Avdhil',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
               title: Text('Add Post'),
               onTap: () {
                 print('Add Post click me');
-                Navigator.pop(context);
+                Navigator.of(context).pushNamedAndRemoveUntil('/AddPost', (Route<dynamic> route) => false);
               },
             ),
             ListTile(
@@ -84,13 +84,6 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.logout,color: Colors.indigo,),
-              title: Text('Logout'),
-              onTap: () {
-                Navigator.of(context).pushNamedAndRemoveUntil('/Login', (Route<dynamic> route) => false);
-              },
-            ),
-            ListTile(
               leading: Icon(
                 Icons.settings,
                 color: Colors.indigo,
@@ -99,6 +92,13 @@ class _HomeState extends State<Home> {
               onTap: () {
                 print('Settings click me');
                 Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout,color: Colors.indigo,),
+              title: Text('Logout'),
+              onTap: () {
+                Navigator.of(context).pushNamedAndRemoveUntil('/Login', (Route<dynamic> route) => false);
               },
             ),
           ],
