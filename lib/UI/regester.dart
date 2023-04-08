@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:AssistantApp/UI/Auth/mytextfieldusername.dart';
 import 'package:AssistantApp/UI/Login.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -13,6 +12,8 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  List<String> typesAccount = ['Normal account', 'Pharmacist account'];
+  String selectedTypeAccount = 'Normal account';
   late PickedFile _imageFile;
   final ImagePicker _picker = ImagePicker();
 
@@ -25,43 +26,56 @@ class _RegisterState extends State<Register> {
         centerTitle: true,
         title: Text('AssistantApp'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20.0,
-          vertical: 20.0,
-        ),
-        child: ListView(
-          children: <Widget>[
-            imageprofile(),
-            SizedBox(
-              height: 10,
-            ),
-            nameTextField(),
-            SizedBox(
-              height: 10,
-            ),
-            phoneTextField(),
-            SizedBox(
-              height: 10,
-            ),
-            addressTextField(),
-            SizedBox(height: 10,),
-            cityTextField(),
-            SizedBox(
-              height: 10,
-            ),
-            emailTextField(),
-            SizedBox(
-              height: 10,
-            ),
-            passwordTextField(),
-            SizedBox(
-              height: 30,
-            ),
-            btnSubmit(),
-            buildSignUpBtn(),
-          ],
-        ),
+      body: Container(
+
+          child: ListView(
+            children: <Widget>[
+              Center(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: imageprofile(),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 20.0, top: 5.0, right: 20.0,bottom: 5.0),
+                      child: Column(
+                        children: <Widget>[
+                          nameTextField(),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          phoneTextField(),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          addressTextField(),
+                          SizedBox(height: 10,),
+                          cityTextField(),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          emailTextField(),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          passwordTextField(),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          btnSubmit(),
+                          buildSignUpBtn(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
       ),
     );
   }
@@ -171,7 +185,7 @@ class _RegisterState extends State<Register> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black26,
+              color: Colors.black12,
               blurRadius: 6,
               offset: Offset(0, 2),
             )
@@ -203,7 +217,7 @@ class _RegisterState extends State<Register> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black26,
+              color: Colors.black12,
               blurRadius: 6,
               offset: Offset(0, 2),
             )
@@ -235,7 +249,7 @@ class _RegisterState extends State<Register> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black26,
+              color: Colors.black12,
               blurRadius: 6,
               offset: Offset(0, 2),
             )
@@ -267,7 +281,7 @@ class _RegisterState extends State<Register> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black26,
+              color: Colors.black12,
               blurRadius: 6,
               offset: Offset(0, 2),
             )
@@ -299,7 +313,7 @@ class _RegisterState extends State<Register> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black26,
+              color: Colors.black12,
               blurRadius: 6,
               offset: Offset(0, 2),
             )
@@ -308,7 +322,7 @@ class _RegisterState extends State<Register> {
       child: TextField(
         keyboardType: TextInputType.emailAddress,
         style: TextStyle(
-          color: Colors.black87,
+          color: Colors.white,
         ),
         decoration: InputDecoration(
             border: InputBorder.none,
@@ -331,7 +345,7 @@ class _RegisterState extends State<Register> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black26,
+              color: Colors.black12,
               blurRadius: 6,
               offset: Offset(0, 2),
             )
@@ -408,7 +422,38 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
-
+Widget buildTextField(String placeholder, bool isPasswordTextField){
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 6,
+              offset: Offset(0, 2),
+            )
+          ]),
+      height: 50,
+      child: TextField(
+        obscureText: isPasswordTextField,
+        keyboardType: TextInputType.text,
+        style: TextStyle(
+          color: Colors.black87,
+        ),
+        decoration: InputDecoration(
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.only(top: 14),
+            prefixIcon: Icon(
+              Icons.person,
+              color: Colors.indigo,
+              size: 25,
+            ),
+            hintText: placeholder,
+            hintStyle: TextStyle(color: Colors.black38)),
+      ),
+    );
+}
 
 
 }
