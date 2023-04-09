@@ -1,3 +1,4 @@
+import 'package:AssistantApp/UI/Settings.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -52,7 +53,12 @@ class _HomeState extends State<Home> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home,color: Colors.indigo,),
+              leading:IconButton(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.indigo,
+                ), onPressed: () {},
+              ),
               title: Text('Home'),
               onTap: () {
                 print('Home click me');
@@ -60,7 +66,12 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.post_add,color: Colors.indigo,),
+              leading:IconButton(
+                icon: Icon(
+                  Icons.post_add,
+                  color: Colors.indigo,
+                ), onPressed: () {},
+              ),
               title: Text('Add Post'),
               onTap: () {
                 print('Add Post click me');
@@ -68,25 +79,39 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.local_pharmacy,color: Colors.indigo,),
+              leading: IconButton(
+                icon: Icon(
+                  Icons.local_pharmacy,
+                  color: Colors.indigo,
+                ), onPressed: () {},
+              ),
               title: Text('Pharmacy'),
               onTap: () {
                 print('Pharmacy click me');
                 Navigator.pop(context);
               },
             ),
+            // ListTile(
+            //   leading: IconButton(
+            //     icon: Icon(
+            //       Icons.account_circle,
+            //       color: Colors.indigo,
+            //     ), onPressed: () {},
+            //   ),
+            //   title: Text('Profile'),
+            //   onTap: () {
+            //     print('Profile click me');
+            //     Navigator.pop(context);
+            //   },
+            // ),
             ListTile(
-              leading: Icon(Icons.account_circle,color: Colors.indigo,),
-              title: Text('Profile'),
-              onTap: () {
-                print('Profile click me');
-                Navigator.pop(context);
+              leading: IconButton(
+                icon: Icon(
+                  Icons.settings,
+                  color: Colors.indigo,
+                ), onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => SettingsPage()));
               },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.settings,
-                color: Colors.indigo,
               ),
               title: Text('Settings'),
               onTap: () {
@@ -95,7 +120,12 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.logout,color: Colors.indigo,),
+              leading:IconButton(
+                icon: Icon(
+                  Icons.logout,
+                  color: Colors.indigo,
+                ), onPressed: () {},
+              ),
               title: Text('Logout'),
               onTap: () {
                 Navigator.of(context).pushNamedAndRemoveUntil('/Login', (Route<dynamic> route) => false);
